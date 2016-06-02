@@ -42,9 +42,9 @@ func parse(text string) gitURL {
 	path = extensionR.ReplaceAllString(path, "")
 
 	// Split path into owner and name
-	parts := strings.SplitN(path, "/", 2)
-	result.Owner = parts[0]
-	result.Name = parts[1]
+	parts := strings.Split(path, "/")
+	result.Owner = parts[len(parts)-2]
+	result.Name = parts[len(parts)-1]
 
 	return result
 }
